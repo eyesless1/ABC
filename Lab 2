@@ -1,0 +1,42 @@
+﻿#include <iostream>
+
+void printBits(float number) {
+    // Преобразуем число в его битовое представление
+    unsigned int bits = *((unsigned int*)&number);
+
+    // Печатаем биты
+    std::cout << "Битовое представление числа " << number << ": ";
+    for (int i = sizeof(float) * 8 - 1; i >= 0; --i) {
+        std::cout << ((bits >> i) & 1);
+        if (i % 4 == 0) std::cout << " "; 
+    }
+    std::cout << std::endl;
+}
+
+bool compareFloatBits(float a, float b) {
+    unsigned int bitsA = *((unsigned int*)&a);
+    unsigned int bitsB = *((unsigned int*)&b);
+
+    return bitsA == bitsB;
+}
+
+int main() {
+    float num1, num2;
+
+    std::cout << "Введите первое число: ";
+    std::cin >> num1;
+    std::cout << "Введите второе число: ";
+    std::cin >> num2;
+
+    printBits(num1);
+    printBits(num2);
+
+    if (compareFloatBits(num1, num2)) {
+        std::cout << "Числа равны по битовому представлению." << std::endl;
+    }
+    else {
+        std::cout << "Числа не равны по битовому представлению." << std::endl;
+    }
+
+    return 0;
+}
