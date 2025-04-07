@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main() {
+    
+    int result1 = 10000 - 5000;
+    std::cout << "10000 - 5000 = " << result1 << std::endl;
+
+    
+    int result2 = 1235 + 7120;
+    std::cout << "1235 + 7120 = " << result2 << std::endl;
+
+    
+    int hex1 = 0xFFC1; 
+    int hex2 = 0xB131; 
+    int result3 = hex1 - hex2;
+    std::cout << "FFC1 - B131 = " << std::hex << result3 << std::dec << " (Hex)" << std::endl;
+
+    
+    int num1 = 6 * 7 * 7 + 5 * 7 + 2; 
+    int num2 = 2 * 7 + 1 * 1 + 6; 
+    int result4 = num1 - num2;
+    std::cout << "652 (7) - 216 (7) = " << result4 << " (Dec)" << std::endl;
+
+   
+    int result5 = 20 * 5;
+    std::cout << "20 * 5 = " << result5 << std::endl;
+
+    return 0;
+}
