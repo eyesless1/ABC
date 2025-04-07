@@ -1,0 +1,34 @@
+﻿#include <iostream>
+
+int main() {
+    int number;
+    std::cout << "Введите число: ";
+    std::cin >> number;
+
+    int binary = 0;
+    int place = 1;
+
+    // Переводим в двоичную систему счисления
+    while (number > 0) {
+        binary += (number % 2) * place;
+        number /= 2;
+        place *= 10;
+    }
+
+    // Проверка на палиндром
+    int original = binary, reversed = 0;
+
+    while (binary > 0) {
+        reversed = reversed * 10 + (binary % 10);
+        binary /= 10;
+    }
+
+    if (original == reversed) {
+        std::cout << "Двоичное число является палиндромом." << std::endl;
+    }
+    else {
+        std::cout << "Двоичное число не является палиндромом." << std::endl;
+    }
+
+    return 0;
+}
